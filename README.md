@@ -16,9 +16,9 @@
 * **Target Stakeholders:** Claims auditors, compliance/policy team, provider relations, finance/actuarial
 * **Primary Decision Question:** For a given claim, was the coverage decision (denied, allowed) consistent with the plan and procedure policy that was in effect on the date of service?
 * **Supporting Business Questions:**
-  1. [Supporting question 1]
-  2. [Supporting question 2]
-  3. [Supporting question 3]
+  1. Which regions have the highest rate of claims that reference policies with missing or incomplete metadata?
+  2. Are there any patterns across any member's claim history that suggest a systemic policy-application error?
+  3. Which claims involve a procedure code or plan where the applicable policy is missing, or outdated? 
 
 ---
 
