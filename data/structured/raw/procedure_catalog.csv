@@ -1,0 +1,20 @@
+code,code_type,description,category,review_flag
+99213,Procedure,"Office/outpatient visit, established patient, low-moderate complexity",Evaluation & Management,N
+99214,Procedure,"Office/outpatient visit, established patient, moderate complexity",Evaluation & Management,N
+97110,Procedure,"Therapeutic exercise, one or more areas, each 15 minutes",Physical Therapy,Y
+87086,Procedure,"Urine culture, bacterial, quantitative",Laboratory - Microbiology,N
+93000,Procedure,"Electrocardiogram, complete, with interpretation and report",Diagnostic - Cardiology,Y
+85025,Procedure,"Complete blood count (CBC), with automated differential",Laboratory - Hematology,N
+71046,Procedure,"Chest X-ray, 2 views",Imaging - Radiology,Y
+80053,Procedure,Comprehensive metabolic panel,Laboratory - Chemistry,N
+36415,Procedure,Routine venipuncture for collection of specimen,Laboratory - Specimen Collection,N
+K21.9,Diagnosis,Gastro-esophageal reflux disease without esophagitis,Digestive,N
+E78.5,Diagnosis,"Hyperlipidemia, unspecified",Endocrine/Metabolic,N
+F41.9,Diagnosis,"Anxiety disorder, unspecified",Behavioral Health,Y
+I25.10,Diagnosis,"Atherosclerotic heart disease of native coronary artery, without angina pectoris",Cardiovascular,Y
+N39.0,Diagnosis,"Urinary tract infection, site not specified",Genitourinary,N
+M54.5,Diagnosis,Low back pain,Musculoskeletal,Y
+I10,Diagnosis,Essential (primary) hypertension,Cardiovascular,N
+E11.9,Diagnosis,Type 2 diabetes mellitus without complications,Endocrine/Metabolic,N
+J18.9,Diagnosis,"Pneumonia, unspecified organism",Respiratory,Y
+J06.9,Diagnosis,"Acute upper respiratory infection, unspecified",Respiratory,N
