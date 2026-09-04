@@ -25,9 +25,9 @@
 ## 3. Microcosm Assets Overview
 
 ### Structured Operational Datasets (`data/structured/raw/`)
-* `file_1.csv` - [Brief description, row count, primary key]
-* `file_2.csv` - [Brief description, row count, primary key]
-* `file_3.csv` - [Brief description, row count, primary key & foreign keys]
+* `claims_ledger.csv` - Transaction/Event dataset for member claims.  500 rows.  PK: claim_id  FK: member_id, diagnosis_code, procedure_code
+* `patient_accounts.csv` - Patient table, reference dataset for members.  275 rows.  PK: member_id
+* `procedure_catalog.csv` - Procedure table, reference dataset for procedures.  19 rows.  PK: code
 
 ### Knowledge Corpus (`data/documents/source/`)
 * Contains **[X]** total documents (**[Y]** PDFs, **[Z]** TXT/MD files).
