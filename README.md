@@ -1,20 +1,20 @@
 # DSBA 6171: [Domain Name] Data & Knowledge Microcosm
 
 ## 1. Team Information & Roles
-* **Team Number / Name:** [e.g., Team 01 - FinTech]
-* **Team Lead / Liaison:** [Student Name]
-* **Data & Ingestion Lead:** [Student Name]
-* **Database & Analytics Lead:** [Student Name]
-* **Knowledge & Retrieval Lead:** [Student Name]
-* **Quality & Governance Lead:** [Student Name]
+* **Team Number / Name:** Team 4 - HealthTech
+* **Team Lead / Liaison:** Paul Clark
+* **Data & Ingestion Lead:** Thejeshri Rajesh
+* **Database & Analytics Lead:** Paul Clark
+* **Knowledge & Retrieval Lead:** Mohammed Qurneh & Natalia Walker
+* **Quality & Governance Lead:** Taylor Ferguson
 
 ---
 
 ## 2. Business Context & Problem Framing
-* **Assigned Domain:** [FinTech: Credit & Loan Review | HealthTech: Medical Claims & Payer Auditing]
-* **Business Function / Process:** [e.g., Streamlining credit review & compliance audit]
-* **Target Stakeholders:** [e.g., Underwriting officers, Compliance auditors]
-* **Primary Decision Question:** [Insert primary decision question]
+* **Assigned Domain:** HealthTech: Medical Claims & Payer Auditing
+* **Business Function / Process:** Claims audit and payer compliance review for a regional health plan
+* **Target Stakeholders:** Claims auditors, compliance/policy team, provider relations, finance/actuarial
+* **Primary Decision Question:** For a given claim, was the coverage decision (denied, allowed) consistent with the plan and procedure policy that was in effect on the date of service?
 * **Supporting Business Questions:**
   1. [Supporting question 1]
   2. [Supporting question 2]
