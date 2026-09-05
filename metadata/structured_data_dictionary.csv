@@ -1,20 +1,20 @@
 dataset,field_name,data_type,business_definition,key_status,is_required
 patient_accounts	member_id	VARCHAR	Unique identifier for each member/policyholder. Surrogate key assigned at enrollment.	PK	Yes
-patient_accounts	plan_code	VARCHAR	Code identifying the health plan the member is enrolled in (e.g., MCR-STD, MCD-STD, PRV-SLVR).		Yes
-patient_accounts	insurance_type	VARCHAR	Broad insurance category: Medicare, Medicaid, Private, or Self-Pay.		Yes
+patient_accounts	plan_code	VARCHAR	Code identifying the health plan the member is enrolled in (e.g. MCR-STD MCD-STD PRV-SLVR).		Yes
+patient_accounts	insurance_type	VARCHAR	Broad insurance category: Medicare Medicaid Private or Self-Pay.		Yes
 patient_accounts	region	VARCHAR	Two-letter US state code representing the member's geographic region.		Yes
 patient_accounts	enrollment_date	DATE	Date the member enrolled in their current health plan (MM/DD/YYYY).		Yes
 patient_accounts	eligibility_status	VARCHAR	Current enrollment status of the member: Active or Terminated.		Yes
 procedure_catalog	code	VARCHAR	Standardized procedure or diagnosis code (CPT or ICD-10). Primary identifier for this catalog entry.	PK	Yes
 procedure_catalog	code_type	VARCHAR	Classification of the code: Procedure (CPT) or Diagnosis (ICD-10).		Yes
 procedure_catalog	description	TEXT	Human-readable description of the procedure or diagnosis associated with the code.		Yes
-procedure_catalog	category	VARCHAR	Clinical or administrative grouping for the code (e.g., Evaluation & Management, Laboratory, Physical Therapy).		Yes
+procedure_catalog	category	VARCHAR	Clinical or administrative grouping for the code (e.g. Evaluation & Management Laboratory Physical Therapy).		Yes
 procedure_catalog	review_flag	CHAR(1)	Indicator (Y/N) of whether this procedure or diagnosis code requires manual clinical review before a coverage decision.		Yes
 claims_ledger	claim_id	VARCHAR	Unique identifier for each submitted claim event. Surrogate key assigned at submission.	PK	Yes
 claims_ledger	member_id	VARCHAR	References the member who received the service. Links to patient_accounts.member_id.	FK: patient_accounts.member_id	Yes
 claims_ledger	provider_id	VARCHAR	Identifier for the healthcare provider who rendered the service.		Yes
 claims_ledger	plan_code	VARCHAR	Health plan code active for the member at the time of service. Links to patient_accounts.plan_code.	FK: patient_accounts.plan_code	Yes
-claims_ledger	insurance_type	VARCHAR	Insurance category for the claim: Medicare, Medicaid, Private, or Self-Pay. Denormalized from patient_accounts for audit traceability.		Yes
+claims_ledger	insurance_type	VARCHAR	Insurance category for the claim: Medicare Medicaid Private or Self-Pay. Denormalized from patient_accounts for audit traceability.		Yes
 claims_ledger	diagnosis_code	VARCHAR	ICD-10 diagnosis code recorded on the claim. Links to procedure_catalog.code for review rules.	FK: procedure_catalog.code	Yes
 claims_ledger	procedure_code	VARCHAR	CPT procedure code billed on the claim. Links to procedure_catalog.code for coverage and review rules.	FK: procedure_catalog.code	Yes
 claims_ledger	billed_amount	DECIMAL	Total dollar amount billed by the provider for the service.		Yes
@@ -25,8 +25,8 @@ claims_ledger	decision_status	VARCHAR	Payer decision on the claim: Approved, Den
 claims_ledger	patient_state	VARCHAR	Two-letter US state where the patient received care. Used for regional compliance analysis.		Yes
 claims_ledger	patient_age	INT	Age of the patient at the time of service in years.		Yes
 claims_ledger	patient_gender	VARCHAR	Reported gender of the patient: Male or Female.		Yes
-claims_ledger	provider_specialty	VARCHAR	Clinical specialty of the rendering provider (e.g., Cardiology, General Practice). May be null if not reported.		No
-claims_ledger	visit_type	VARCHAR	Classification of the encounter: Outpatient, Inpatient, or Emergency.		Yes
+claims_ledger	provider_specialty	VARCHAR	Clinical specialty of the rendering provider (e.g., Cardiology General Practice). May be null if not reported.		No
+claims_ledger	visit_type	VARCHAR	Classification of the encounter: Outpatient Inpatient or Emergency.		Yes
 claims_ledger	length_of_stay	INT	Number of inpatient days. Zero for outpatient and emergency visits.		Yes
 claims_ledger	chronic_condition_flag	BIT	Indicates (1/0) whether the patient has a documented chronic condition relevant to the claim.		Yes
 claims_ledger	prior_visits_12m	INT	Number of visits by this member in the prior 12 months. May be null for new members.		No
