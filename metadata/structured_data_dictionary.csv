@@ -21,11 +21,11 @@ claims_ledger	billed_amount	DECIMAL	Total dollar amount billed by the provider f
 claims_ledger	allowed_amount	DECIMAL	Dollar amount approved by the payer under the applicable plan policy.		Yes
 claims_ledger	date_of_service	DATE	Date the medical service was rendered (MM/DD/YYYY). Key field for point-in-time policy matching.		Yes
 claims_ledger	submission_date	DATE	Date the claim was submitted to the payer (MM/DD/YYYY).		Yes
-claims_ledger	decision_status	VARCHAR	Payer decision on the claim: Approved, Denied, or Pending.		Yes
+claims_ledger	decision_status	VARCHAR	Payer decision on the claim: Approved Denied or Pending.		Yes
 claims_ledger	patient_state	VARCHAR	Two-letter US state where the patient received care. Used for regional compliance analysis.		Yes
 claims_ledger	patient_age	INT	Age of the patient at the time of service in years.		Yes
 claims_ledger	patient_gender	VARCHAR	Reported gender of the patient: Male or Female.		Yes
-claims_ledger	provider_specialty	VARCHAR	Clinical specialty of the rendering provider (e.g., Cardiology General Practice). May be null if not reported.		No
+claims_ledger	provider_specialty	VARCHAR	Clinical specialty of the rendering provider (e.g. Cardiology General Practice). May be null if not reported.		No
 claims_ledger	visit_type	VARCHAR	Classification of the encounter: Outpatient Inpatient or Emergency.		Yes
 claims_ledger	length_of_stay	INT	Number of inpatient days. Zero for outpatient and emergency visits.		Yes
 claims_ledger	chronic_condition_flag	BIT	Indicates (1/0) whether the patient has a documented chronic condition relevant to the claim.		Yes
