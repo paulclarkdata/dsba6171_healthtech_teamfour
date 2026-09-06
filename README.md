@@ -46,9 +46,9 @@
 ## 5. Controlled Quality Issues & Risk Matrix Summary
 | Quality Problem | Affected Layer | AI Impact | Business Consequence | Future Control |
 | :--- | :--- | :--- | :--- | :--- |
-| Miscoded data entries for the column insurance_type under the table patient_accounts | Ingestion / Vector Store | Incorrect context retrieve | Flawed decisioning | Deduplication gate |
-| Outdated documents referencing diagnosis codes | Knowledge Corpus | Hallucination on superseded rules | Compliance failure | Authority filter |
-| Incorrect column type for numeric columns (e.g. float vs integer) | Data Quality | Null keys during join | Partial analytics | Schema contract |
+| Miscoded data entries for the column insurance_type under the table patient_accounts | [text] | [text] | [text] | [text] |
+| Outdated documents referencing diagnosis codes | [text] | [text] | [text] | [text] |
+| Incorrect column type for numeric columns (e.g. float vs integer) | [text] | [text] | [text] | [text] |
 
 ---
 
