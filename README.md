@@ -36,10 +36,12 @@
 ---
 
 ## 4. Structured Signal to Knowledge Linkage
-* **Signal Example 1:** [Structured Field / Event] -> [Policy Document ID]
-  * *Why it matters:* [Explanation of business impact]
-* **Signal Example 2:** [Structured Field / Event] -> [Policy Document ID]
-  * *Why it matters:* [Explanation of business impact]
+* **Signal 1:** [member_id + provider_id] -> [In-network coverage policy]
+  * *Why it matters:* Determines whether a patient is a member of the provider and is eligible to receive coverage from the list of eligible in-network providers.
+* **Signal Example 2:** [diagnosis_code + procedure_code] -> [Clinical policies]
+  * *Why it matters:* Determines the most appropriate procedures given a diagnosis with outdated policies resulting in inaccurate approvals or denials.
+* **Signal Example 3:** [is_fraud_flag = 1] -> [Audit procedures/protocols]
+  * *Why it matters:* Determines whether a claim needs to be audited for fraud which can alert the relevant teams to start a security review.
 
 ---
 
