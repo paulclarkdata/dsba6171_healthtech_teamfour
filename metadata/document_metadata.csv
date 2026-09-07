@@ -1,2 +1,8 @@
-doc_id,title,doc_type,source,owner,effective_date,version,jurisdiction_region,authority_status,confidentiality,access_group
-DOC001,Sample Policy,PDF,Internal,Compliance,2026-01-01,v1.0,US,CURRENT,Internal,All
+doc_id,title,doc_type,source,owner,effective_date,version,jurisdiction/region,authority_status,confidentiality,access_group
+HT-POL-001,Inpatient & Outpatient Coverage Policy,Policy,Synthetic Internal,Medical Policy,2026-01-01,v2.0,National,current,internal,Claims_Auditors
+HT-POL-001-OLD,Inpatient & Outpatient Coverage Policy (Legacy),Policy,Synthetic Internal,Medical Policy,2024-01-01,v1.0,National,superseded,internal,Claims_Auditors
+HT-GUIDE-002,Procedure Allowance & Fee Schedule,Guideline,Synthetic Internal,Provider Relations,2025-07-01,v1.3,Regional (US-SE),current,internal,Billing_Ops
+HT-PROC-001,Claim Audit & Escalation Workflow,Procedure,Synthetic Internal,Claims Operations,2025-10-01,v1.0,National,approved,internal,Senior_Auditors
+HT-REG-001,Payer Compliance & Prompt Pay Standards,Regulation,Public/CMS Guidance,Legal Compliance,2023-05-15,v1.0,US Federal,current,public,All_Employees
+HT-MEMO-001,Temporary ER Copay Waiver Policy,Memo,Synthetic Internal,Executive Operations,2026-02-01,v1.0-DRAFT,Regional (US-SE),draft,confidential,Executive_Auditors
+HT-FAQ-001,Examiner Audit & Coding Desk FAQ,FAQ,Synthetic Internal,Claims Operations,2025-11-15,v1.1,National,current,internal,Billing_Ops
