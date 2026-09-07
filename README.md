@@ -48,9 +48,9 @@
 ## 5. Controlled Quality Issues & Risk Matrix Summary
 | Quality Problem | Affected Layer | AI Impact | Business Consequence | Future Control |
 | :--- | :--- | :--- | :--- | :--- |
-| Miscoded data entries for the column insurance_type under the table patient_accounts | [text] | [text] | [text] | [text] |
-| Outdated documents referencing diagnosis codes | [text] | [text] | [text] | [text] |
-| Incorrect column type for numeric columns (e.g. float vs integer) | [text] | [text] | [text] | [text] |
+| Miscoded data entries for the column insurance_type under the table patient_accounts | Structured Data Validation / Governance | The AI may associate a member with the wrong insurance type or applicable coverage rules. | A claim could be incorrectly approved, denied, or flagged for review. | Validate insurance_type against expected plan/coverage values and quarantine invalid records. |
+| Outdated documents referencing diagnosis codes | Knowledge Governance / Retrieval | The AI may retrieve an outdated policy and apply obsolete coverage or review requirements. | Claims may be evaluated using rules that were not valid on the date of service, leading to inaccurate decisions or compliance issues. | Track document version, effective date, and authority status and retrieve only the policy valid for the claim date. |
+| Incorrect column type for numeric columns (e.g. float vs integer) | Data Ingestion / Schema Validation | Data may be parsed incorrectly or fail validation or matching used by the AI system. | Claims may be excluded, mismatched, or produce unreliable audit results. | Define and enforce an expected schema/data contract and quarantine records with invalid field types. |
 
 ---
 
