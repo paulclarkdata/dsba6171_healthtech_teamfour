@@ -30,7 +30,7 @@
 * `procedure_catalog.csv` - Procedure table, reference dataset for procedures.  19 rows.  PK: code
 
 ### Knowledge Corpus (`data/documents/source/`)
-* Contains **[X]** total documents (**[Y]** PDFs, **[Z]** TXT/MD files).
+* Contains **[7]** total documents (**[3]** PDFs, **[4]** TXT/MD files).
 * Includes structural challenges (tables, hierarchical headers) and version state diversity (e.g., Current vs. Superseded).
 
 ---
