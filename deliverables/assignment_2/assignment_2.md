@@ -1,5 +1,5 @@
 # Section 1: Structured Data Architecture & AI Consumption
-**Author:** Paul Clark | **Team:** Team 4 — HealthTech: Medical Claims & Payer Auditing
+**Team:** Team 4 — HealthTech: Medical Claims & Payer Auditing
 
 ---
 
