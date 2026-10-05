@@ -4,9 +4,9 @@ patient_accounts,plan_code,VARCHAR,Code identifying the health plan the member i
 patient_accounts,insurance_type,VARCHAR,Broad insurance category: Medicare or Medicaid or Private or Self-Pay.,,Yes
 patient_accounts,region,VARCHAR,Two-letter US state code representing the member geographic region.,,Yes
 patient_accounts,enrollment_date,DATE,Date the member enrolled in their current health plan (MM/DD/YYYY).,,Yes
-patient_accounts,eligibility_status,VARCHAR,Current enrollment status of the member: Active or Terminated.,,Yes
-procedure_catalog,code,VARCHAR,Standardized procedure or diagnosis code (CPT or ICD-10). Primary identifier for this catalog entry.,PK,Yes
-procedure_catalog,code_type,VARCHAR,Classification of the code: Procedure (CPT) or Diagnosis (ICD-10).,,Yes
+patient_accounts,eligibility_status,VARCHAR,Current-state enrollment status: Active or Terminated or Pending. Snapshot only - use member_eligibility for status as of date_of_service.,,Yes
+procedure_catalog,code,VARCHAR,Standardized procedure or diagnosis code (CPT or ICD-10). Unique only in combination with code_type.,PK (composite: code + code_type),Yes
+procedure_catalog,code_type,VARCHAR,Classification of the code: Procedure (CPT) or Diagnosis (ICD-10).,PK (composite: code + code_type),Yes
 procedure_catalog,description,TEXT,Human-readable description of the procedure or diagnosis associated with the code.,,Yes
 procedure_catalog,category,VARCHAR,Clinical or administrative grouping for the code (e.g. Evaluation & Management or Laboratory or Physical Therapy).,,Yes
 procedure_catalog,review_flag,CHAR(1),Indicator (Y/N) of whether this code requires manual clinical review before a coverage decision.,,Yes
@@ -33,3 +33,25 @@ claims_ledger,prior_visits_12m,INT,Number of visits by this member in the prior 
 claims_ledger,days_between_service_and_claim,INT,Calculated lag in days between date_of_service and submission_date. Used in timeliness and fraud analysis.,,Yes
 claims_ledger,claims_per_provider_monthly,INT,Rolling monthly claim count for the rendering provider. Used as a fraud/volume indicator.,,Yes
 claims_ledger,is_fraud_flag,BIT,Controlled quality flag (1/0) indicating a claim marked for potential fraud review. Intentional governance test field.,,Yes
+fee_schedule,fee_schedule_id,VARCHAR,Unique identifier for one plan + procedure + fee-schedule version row (FS-{version}-{plan_code}-{procedure_code}).,PK,Yes
+fee_schedule,plan_code,VARCHAR,"Health plan the allowed rate applies to. Current HT-GUIDE-002 covers PRV-GOLD, PRV-SLVR, PRV-BRZ only.",,Yes
+fee_schedule,procedure_code,VARCHAR,CPT procedure code the rate applies to. Links to procedure_catalog.code where code_type = Procedure.,FK -> procedure_catalog.code,Yes
+fee_schedule,allowed_amount,DECIMAL,Contracted allowed amount in USD per service line for this plan and procedure under this version.,,Yes
+fee_schedule,prior_auth_required,CHAR(1),Y/N - whether prior authorization is required under this version.,,Yes
+fee_schedule,audit_rule,TEXT,Audit flag / policy rule text from HT-GUIDE-002.,,No
+fee_schedule,version,VARCHAR,"Fee-schedule version label (v1.1, v1.2, v1.3). Matches document_metadata.version for the current document.",,Yes
+fee_schedule,effective_from,DATE,First date of service (YYYY-MM-DD) this rate applies to. Half-open interval: row applies when effective_from <= date_of_service < effective_to.,,Yes
+fee_schedule,effective_to,DATE,First date of service this rate no longer applies (exclusive). Null = currently in effect. Half-open interval: row applies when effective_from <= date_of_service < effective_to.,,No
+fee_schedule,authority_status,VARCHAR,current or superseded. Only one current row per plan + procedure.,,Yes
+fee_schedule,source_doc_id,VARCHAR,Knowledge-corpus document the rate comes from. Links to document_metadata.doc_id.,FK -> document_metadata.doc_id,Yes
+fee_schedule,is_synthetic,CHAR(1),Y = synthetic prior version created for MA2 point-in-time testing; N = transcribed from HT-GUIDE-002.,,Yes
+member_eligibility,eligibility_id,VARCHAR,Unique identifier for one member coverage period.,PK,Yes
+member_eligibility,member_id,VARCHAR,Member the coverage period belongs to.,FK -> patient_accounts.member_id,Yes
+member_eligibility,plan_code,VARCHAR,Plan the member was enrolled in during this period.,,Yes
+member_eligibility,insurance_type,VARCHAR,Insurance category during this period: Medicare or Medicaid or Private or Self-Pay.,,Yes
+member_eligibility,eligibility_status,VARCHAR,Status during this period: Active or Terminated or Pending.,,Yes
+member_eligibility,effective_from,DATE,First date (YYYY-MM-DD) this period applies. Half-open interval: row applies when effective_from <= date_of_service < effective_to.,,Yes
+member_eligibility,effective_to,DATE,First date this period no longer applies (exclusive). Null = current period. Half-open interval: row applies when effective_from <= date_of_service < effective_to.,,No
+member_eligibility,version,INT,Sequence of the period for the member (1 = first). Highest version = current state.,,Yes
+member_eligibility,effective_from_basis,VARCHAR,"How effective_from was set: enrollment_date, backfilled_earliest_claim, plan_change, or termination.",,Yes
+member_eligibility,change_reason,VARCHAR,"Business reason the period started (initial enrollment, plan tier change, coverage terminated, enrollment pending verification).",,Yes
