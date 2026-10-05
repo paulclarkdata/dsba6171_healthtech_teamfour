@@ -1,0 +1,82 @@
+fee_schedule_id,plan_code,procedure_code,allowed_amount,prior_auth_required,audit_rule,version,effective_from,effective_to,authority_status,source_doc_id,is_synthetic
+FS-v1.1-PRV-GOLD-99213,PRV-GOLD,99213,415.00,N,Standard E/M documentation review,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-SLVR-99213,PRV-SLVR,99213,370.00,N,Standard E/M documentation review,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-BRZ-99213,PRV-BRZ,99213,315.00,N,Standard E/M documentation review,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-GOLD-99214,PRV-GOLD,99214,560.00,N,Standard E/M documentation review,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-SLVR-99214,PRV-SLVR,99214,495.00,N,Standard E/M documentation review,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-BRZ-99214,PRV-BRZ,99214,430.00,N,Standard E/M documentation review,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-GOLD-97110,PRV-GOLD,97110,380.00,Y,Review flag Y; session count audit,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-SLVR-97110,PRV-SLVR,97110,340.00,Y,Review flag Y; session count audit,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-BRZ-97110,PRV-BRZ,97110,280.00,Y,Review flag Y; session count audit,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-GOLD-93000,PRV-GOLD,93000,495.00,Y,Cardiology diagnostic review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-SLVR-93000,PRV-SLVR,93000,430.00,Y,Cardiology diagnostic review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-BRZ-93000,PRV-BRZ,93000,360.00,Y,Cardiology diagnostic review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-GOLD-85025,PRV-GOLD,85025,315.00,N,Routine lab review rule,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-SLVR-85025,PRV-SLVR,85025,270.00,N,Routine lab review rule,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-BRZ-85025,PRV-BRZ,85025,225.00,N,Routine lab review rule,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-GOLD-71046,PRV-GOLD,71046,540.00,Y,Radiology imaging review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-SLVR-71046,PRV-SLVR,71046,470.00,Y,Radiology imaging review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-BRZ-71046,PRV-BRZ,71046,395.00,Y,Radiology imaging review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-GOLD-80053,PRV-GOLD,80053,200.00,N,Bundles with 36415 venipuncture,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-SLVR-80053,PRV-SLVR,80053,160.00,N,Bundles with 36415 venipuncture,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-BRZ-80053,PRV-BRZ,80053,135.00,N,Bundles with 36415 venipuncture,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-GOLD-36415,PRV-GOLD,36415,360.00,N,Subject to bundling checks (HT-FAQ-001),v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-SLVR-36415,PRV-SLVR,36415,315.00,N,Subject to bundling checks (HT-FAQ-001),v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-BRZ-36415,PRV-BRZ,36415,270.00,N,Subject to bundling checks (HT-FAQ-001),v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-GOLD-87086,PRV-GOLD,87086,250.00,N,Microbiology lab standard,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-SLVR-87086,PRV-SLVR,87086,215.00,N,Microbiology lab standard,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-BRZ-87086,PRV-BRZ,87086,180.00,N,Microbiology lab standard,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-GOLD-99213,PRV-GOLD,99213,435.00,N,Standard E/M documentation review,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-SLVR-99213,PRV-SLVR,99213,390.00,N,Standard E/M documentation review,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-BRZ-99213,PRV-BRZ,99213,330.00,N,Standard E/M documentation review,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-GOLD-99214,PRV-GOLD,99214,590.00,N,Standard E/M documentation review,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-SLVR-99214,PRV-SLVR,99214,520.00,N,Standard E/M documentation review,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-BRZ-99214,PRV-BRZ,99214,455.00,N,Standard E/M documentation review,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-GOLD-97110,PRV-GOLD,97110,400.00,Y,Review flag Y; session count audit,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-SLVR-97110,PRV-SLVR,97110,360.00,Y,Review flag Y; session count audit,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-BRZ-97110,PRV-BRZ,97110,295.00,Y,Review flag Y; session count audit,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-GOLD-93000,PRV-GOLD,93000,520.00,Y,Cardiology diagnostic review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-SLVR-93000,PRV-SLVR,93000,455.00,Y,Cardiology diagnostic review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-BRZ-93000,PRV-BRZ,93000,380.00,Y,Cardiology diagnostic review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-GOLD-85025,PRV-GOLD,85025,330.00,N,Routine lab review rule,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-SLVR-85025,PRV-SLVR,85025,285.00,N,Routine lab review rule,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-BRZ-85025,PRV-BRZ,85025,240.00,N,Routine lab review rule,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-GOLD-71046,PRV-GOLD,71046,570.00,Y,Radiology imaging review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-SLVR-71046,PRV-SLVR,71046,495.00,Y,Radiology imaging review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-BRZ-71046,PRV-BRZ,71046,420.00,Y,Radiology imaging review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-GOLD-80053,PRV-GOLD,80053,210.00,N,Bundles with 36415 venipuncture,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-SLVR-80053,PRV-SLVR,80053,170.00,N,Bundles with 36415 venipuncture,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-BRZ-80053,PRV-BRZ,80053,140.00,N,Bundles with 36415 venipuncture,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-GOLD-36415,PRV-GOLD,36415,380.00,N,Subject to bundling checks (HT-FAQ-001),v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-SLVR-36415,PRV-SLVR,36415,330.00,N,Subject to bundling checks (HT-FAQ-001),v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-BRZ-36415,PRV-BRZ,36415,285.00,N,Subject to bundling checks (HT-FAQ-001),v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-GOLD-87086,PRV-GOLD,87086,265.00,N,Microbiology lab standard,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-SLVR-87086,PRV-SLVR,87086,230.00,N,Microbiology lab standard,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-BRZ-87086,PRV-BRZ,87086,190.00,N,Microbiology lab standard,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.3-PRV-GOLD-99213,PRV-GOLD,99213,460.00,N,Standard E/M documentation review,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-SLVR-99213,PRV-SLVR,99213,410.00,N,Standard E/M documentation review,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-BRZ-99213,PRV-BRZ,99213,350.00,N,Standard E/M documentation review,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-GOLD-99214,PRV-GOLD,99214,620.00,N,Standard E/M documentation review,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-SLVR-99214,PRV-SLVR,99214,550.00,N,Standard E/M documentation review,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-BRZ-99214,PRV-BRZ,99214,480.00,N,Standard E/M documentation review,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-GOLD-97110,PRV-GOLD,97110,420.00,Y,Review flag Y; session count audit,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-SLVR-97110,PRV-SLVR,97110,380.00,Y,Review flag Y; session count audit,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-BRZ-97110,PRV-BRZ,97110,310.00,Y,Review flag Y; session count audit,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-GOLD-93000,PRV-GOLD,93000,550.00,Y,Cardiology diagnostic review flag Y,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-SLVR-93000,PRV-SLVR,93000,480.00,Y,Cardiology diagnostic review flag Y,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-BRZ-93000,PRV-BRZ,93000,400.00,Y,Cardiology diagnostic review flag Y,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-GOLD-85025,PRV-GOLD,85025,350.00,N,Routine lab review rule,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-SLVR-85025,PRV-SLVR,85025,300.00,N,Routine lab review rule,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-BRZ-85025,PRV-BRZ,85025,250.00,N,Routine lab review rule,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-GOLD-71046,PRV-GOLD,71046,600.00,Y,Radiology imaging review flag Y,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-SLVR-71046,PRV-SLVR,71046,520.00,Y,Radiology imaging review flag Y,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-BRZ-71046,PRV-BRZ,71046,440.00,Y,Radiology imaging review flag Y,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-GOLD-80053,PRV-GOLD,80053,220.00,N,Bundles with 36415 venipuncture,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-SLVR-80053,PRV-SLVR,80053,180.00,N,Bundles with 36415 venipuncture,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-BRZ-80053,PRV-BRZ,80053,150.00,N,Bundles with 36415 venipuncture,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-GOLD-36415,PRV-GOLD,36415,400.00,N,Subject to bundling checks (HT-FAQ-001),v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-SLVR-36415,PRV-SLVR,36415,350.00,N,Subject to bundling checks (HT-FAQ-001),v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-BRZ-36415,PRV-BRZ,36415,300.00,N,Subject to bundling checks (HT-FAQ-001),v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-GOLD-87086,PRV-GOLD,87086,280.00,N,Microbiology lab standard,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-SLVR-87086,PRV-SLVR,87086,240.00,N,Microbiology lab standard,v1.3,2025-07-01,,current,HT-GUIDE-002,N
+FS-v1.3-PRV-BRZ-87086,PRV-BRZ,87086,200.00,N,Microbiology lab standard,v1.3,2025-07-01,,current,HT-GUIDE-002,N
