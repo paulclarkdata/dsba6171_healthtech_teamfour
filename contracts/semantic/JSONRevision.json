@@ -1,0 +1,238 @@
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "contract_name": "Healthcare AI Microcosm Dual-View Semantic Contract",
+  "version": "v2.0",
+  "target_domain": "Healthcare Claims Adjudication & Service Line Audit",
+  "governance_and_ownership": {
+    "business_owner": "claims_operations@healthtech.com",
+    "data_steward": "data_governance@healthtech.com",
+    "model_version": "claim_eval_v2.0",
+    "data_classification": "PHI-RESTRICTED",
+    "access_roles_required": [
+      "claims_auditor",
+      "compliance_officer"
+    ]
+  },
+  "core_datasets": {
+    "claims_ledger": {
+      "description": "Submitted healthcare claim line items and adjudication decisions.",
+      "grain": "One row per discrete claim transaction event (claim_id).",
+      "business_rules": [
+        "billed_amount must be >= allowed_amount.",
+        "allowed_amount is valid strictly as of date_of_service based on fee schedule in effect.",
+        "decision_status relies on point-in-time member eligibility on date_of_service, not current ingest date."
+      ]
+    },
+    "patient_accounts": {
+      "description": "Patient demographic, plan coverage, and temporal eligibility records.",
+      "grain": "One row per patient/member account.",
+      "business_rules": [
+        "eligibility_status must be evaluated bi-temporally (effective_start_date <= date_of_service <= effective_end_date).",
+        "plan_code links directly to claims_ledger coverage rules."
+      ]
+    },
+    "procedure_catalog": {
+      "description": "Standardized procedure codes, clinical complexity, and fee schedules.",
+      "grain": "One row per procedure code (CPT/HCPCS).",
+      "business_rules": [
+        "Codes with review_flag = 'Y' require NCCI unbundling validation (modifier -59).",
+        "Establishes maximum allowed reimbursement bounds per procedure."
+      ]
+    }
+  },
+  "metadata_policy_rules": [
+    {
+      "rule_id": "HT-FAQ-001 Q2",
+      "type": "Temporal Boundary",
+      "description": "Member eligibility joins must be executed point-in-time as of date_of_service."
+    },
+    {
+      "rule_id": "HT-MEMO-001",
+      "type": "Regional Policy Waiver",
+      "description": "Emergency ER visits (CPT 99285) in US-SE (FL) between Feb 1 - Apr 30, 2026 require copay waiver ($0.00)."
+    },
+    {
+      "rule_id": "HT-REG-001",
+      "type": "Prompt Pay Compliance",
+      "description": "Clean claims must be adjudicated within 30 calendar days."
+    },
+    {
+      "rule_id": "HT-PROC-001",
+      "type": "Routing Policy",
+      "description": "Claims exceeding $25,000 total billed amount require senior review routing."
+    }
+  ],
+  "payload_structure": {
+    "type": "object",
+    "properties": {
+      "audit_header": {
+        "type": "object",
+        "description": "Full Claim View containing claim-level context, aggregate totals, and governance metadata",
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "member_id": {
+            "type": "string"
+          },
+          "patient_state": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "submission_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "total_billed_amount": {
+            "type": "number"
+          },
+          "total_service_lines": {
+            "type": "integer"
+          },
+          "senior_review_required": {
+            "type": "boolean"
+          },
+          "overall_decision_status": {
+            "type": "string",
+            "enum": [
+              "Approved",
+              "Denied",
+              "Pending",
+              "Flagged_For_Review"
+            ]
+          }
+        },
+        "required": [
+          "claim_id",
+          "member_id",
+          "total_billed_amount",
+          "overall_decision_status"
+        ]
+      },
+      "service_lines": {
+        "type": "array",
+        "description": "Service Line View allowing AI model to evaluate each procedure separately",
+        "items": {
+          "type": "object",
+          "properties": {
+            "line_number": {
+              "type": "integer"
+            },
+            "procedure_code": {
+              "type": "string"
+            },
+            "procedure_description": {
+              "type": "string"
+            },
+            "procedure_category": {
+              "type": "string"
+            },
+            "review_flag_ncci": {
+              "type": "string",
+              "enum": [
+                "Y",
+                "N"
+              ]
+            },
+            "date_of_service": {
+              "type": "string",
+              "format": "date"
+            },
+            "billed_amount": {
+              "type": "number"
+            },
+            "allowed_amount": {
+              "type": "number"
+            },
+            "line_decision_status": {
+              "type": "string",
+              "enum": [
+                "Approved",
+                "Denied",
+                "Flagged_For_Review"
+              ]
+            },
+            "denial_reason_code": {
+              "type": "string"
+            },
+            "lineage": {
+              "type": "object",
+              "properties": {
+                "source_system": {
+                  "type": "string"
+                },
+                "source_record_id": {
+                  "type": "string"
+                },
+                "etl_job_id": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": [
+            "line_number",
+            "procedure_code",
+            "date_of_service",
+            "billed_amount",
+            "allowed_amount"
+          ]
+        }
+      }
+    }
+  },
+  "example_payload": {
+    "audit_header": {
+      "claim_id": "C0000088",
+      "member_id": "MBR-00042",
+      "patient_state": "FL",
+      "region": "US-SE",
+      "submission_date": "2026-02-20",
+      "total_billed_amount": 1450.0,
+      "total_service_lines": 2,
+      "senior_review_required": false,
+      "overall_decision_status": "Denied"
+    },
+    "service_lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99285",
+        "procedure_description": "Emergency department visit, high severity",
+        "procedure_category": "Evaluation & Management",
+        "review_flag_ncci": "N",
+        "date_of_service": "2026-02-15",
+        "billed_amount": 1200.0,
+        "allowed_amount": 0.0,
+        "line_decision_status": "Denied",
+        "denial_reason_code": "ERR_ELIG_POINT_IN_TIME",
+        "audit_reasoning": "Member coverage was inactive on date_of_service. Regional copay waiver HT-MEMO-001 applied.",
+        "lineage": {
+          "source_system": "claims_ledger.csv",
+          "source_record_id": "C0000088_L1",
+          "etl_job_id": "job_adjudicate_20260220_01"
+        }
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "36415",
+        "procedure_description": "Routine venipuncture",
+        "procedure_category": "Laboratory",
+        "review_flag_ncci": "Y",
+        "date_of_service": "2026-02-15",
+        "billed_amount": 250.0,
+        "allowed_amount": 200.0,
+        "line_decision_status": "Approved",
+        "denial_reason_code": "NONE",
+        "audit_reasoning": "Valid procedure code and point-in-time eligibility verified.",
+        "lineage": {
+          "source_system": "claims_ledger.csv",
+          "source_record_id": "C0000088_L2",
+          "etl_job_id": "job_adjudicate_20260220_01"
+        }
+      }
+    ]
+  }
+}
