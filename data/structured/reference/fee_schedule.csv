@@ -14,9 +14,9 @@ FS-v1.1-PRV-BRZ-93000,PRV-BRZ,93000,360.00,Y,Cardiology diagnostic review flag Y
 FS-v1.1-PRV-GOLD-85025,PRV-GOLD,85025,315.00,N,Routine lab review rule,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
 FS-v1.1-PRV-SLVR-85025,PRV-SLVR,85025,270.00,N,Routine lab review rule,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
 FS-v1.1-PRV-BRZ-85025,PRV-BRZ,85025,225.00,N,Routine lab review rule,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
-FS-v1.1-PRV-GOLD-71046,PRV-GOLD,71046,540.00,Y,Radiology imaging review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
-FS-v1.1-PRV-SLVR-71046,PRV-SLVR,71046,470.00,Y,Radiology imaging review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
-FS-v1.1-PRV-BRZ-71046,PRV-BRZ,71046,395.00,Y,Radiology imaging review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-GOLD-71046,PRV-GOLD,71046,540.00,N,Radiology imaging review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-SLVR-71046,PRV-SLVR,71046,470.00,N,Radiology imaging review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
+FS-v1.1-PRV-BRZ-71046,PRV-BRZ,71046,395.00,N,Radiology imaging review flag Y,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
 FS-v1.1-PRV-GOLD-80053,PRV-GOLD,80053,200.00,N,Bundles with 36415 venipuncture,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
 FS-v1.1-PRV-SLVR-80053,PRV-SLVR,80053,160.00,N,Bundles with 36415 venipuncture,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
 FS-v1.1-PRV-BRZ-80053,PRV-BRZ,80053,135.00,N,Bundles with 36415 venipuncture,v1.1,2021-01-01,2023-01-01,superseded,HT-GUIDE-002,Y
@@ -41,9 +41,9 @@ FS-v1.2-PRV-BRZ-93000,PRV-BRZ,93000,380.00,Y,Cardiology diagnostic review flag Y
 FS-v1.2-PRV-GOLD-85025,PRV-GOLD,85025,330.00,N,Routine lab review rule,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
 FS-v1.2-PRV-SLVR-85025,PRV-SLVR,85025,285.00,N,Routine lab review rule,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
 FS-v1.2-PRV-BRZ-85025,PRV-BRZ,85025,240.00,N,Routine lab review rule,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
-FS-v1.2-PRV-GOLD-71046,PRV-GOLD,71046,570.00,Y,Radiology imaging review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
-FS-v1.2-PRV-SLVR-71046,PRV-SLVR,71046,495.00,Y,Radiology imaging review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
-FS-v1.2-PRV-BRZ-71046,PRV-BRZ,71046,420.00,Y,Radiology imaging review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-GOLD-71046,PRV-GOLD,71046,570.00,N,Radiology imaging review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-SLVR-71046,PRV-SLVR,71046,495.00,N,Radiology imaging review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
+FS-v1.2-PRV-BRZ-71046,PRV-BRZ,71046,420.00,N,Radiology imaging review flag Y,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
 FS-v1.2-PRV-GOLD-80053,PRV-GOLD,80053,210.00,N,Bundles with 36415 venipuncture,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
 FS-v1.2-PRV-SLVR-80053,PRV-SLVR,80053,170.00,N,Bundles with 36415 venipuncture,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
 FS-v1.2-PRV-BRZ-80053,PRV-BRZ,80053,140.00,N,Bundles with 36415 venipuncture,v1.2,2023-01-01,2025-07-01,superseded,HT-GUIDE-002,Y
