@@ -1,0 +1,1007 @@
+{
+  "name": "DSBA 6171_Team 4_Project Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -112,
+        2048
+      ],
+      "id": "d2771387-5608-44a5-8101-305ac3b5175d",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "model": "qwen3:4b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        1888,
+        1280
+      ],
+      "id": "a0adbf3f-b77b-453a-b994-79d24004efe7",
+      "name": "Ollama Chat Model1",
+      "credentials": {
+        "ollamaApi": {
+          "id": "DBb2kqa47sxEkFTT",
+          "name": "Ollama account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        2080,
+        1312
+      ],
+      "id": "93cb87c5-80b0-4853-a4ff-451b6bd0483e",
+      "name": "Simple Memory1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        1760,
+        1024
+      ],
+      "id": "cf4bcbf4-0233-40ea-b2cd-0b4424dc8036",
+      "name": "When chat message received",
+      "webhookId": "4b1cfed7-a7f1-460e-b682-d71f3f262e4a"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Answer question based on ingested document(s)",
+        "memoryKey": {
+          "__rl": true,
+          "value": "ta_lab_structure",
+          "mode": "list",
+          "cachedResultName": "ta_lab_structure"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        2240,
+        1248
+      ],
+      "id": "547b1b41-152d-461d-9ddc-d6e2530868b4",
+      "name": "Simple Vector Store4"
+    },
+    {
+      "parameters": {
+        "model": "nomic-embed-text:latest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        2320,
+        1456
+      ],
+      "id": "e5c3e2f4-c855-4385-9dc8-175511d6c838",
+      "name": "Embeddings Ollama3",
+      "credentials": {
+        "ollamaApi": {
+          "id": "DBb2kqa47sxEkFTT",
+          "name": "Ollama account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "memoryKey": {
+          "__rl": true,
+          "value": "ta_lab_structure",
+          "mode": "id"
+        },
+        "clearStore": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.2,
+      "position": [
+        512,
+        512
+      ],
+      "id": "91775976-3141-4a00-880c-9aa73bf9f539",
+      "name": "Simple Vector Store1"
+    },
+    {
+      "parameters": {
+        "model": "nomic-embed-text:latest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        272,
+        752
+      ],
+      "id": "7549d9fa-6450-4f74-8452-0698ab2b4e2a",
+      "name": "Embeddings Ollama1",
+      "credentials": {
+        "ollamaApi": {
+          "id": "DBb2kqa47sxEkFTT",
+          "name": "Ollama account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        496,
+        752
+      ],
+      "id": "30efbc93-bbde-4202-a1ae-3b6159556734",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "chunkSize": 400,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        480,
+        960
+      ],
+      "id": "09b6d278-c678-4dc1-bf7d-0fc5945b7bf3",
+      "name": "Recursive Character Text Splitter"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        880,
+        512
+      ],
+      "id": "37d8be7f-41ee-43aa-bcbb-fde352212e8d",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "memoryKey": {
+          "__rl": true,
+          "value": "ta_lab_structure",
+          "mode": "id"
+        },
+        "prompt": "Can I bring a carry-on bag and a backpack?",
+        "topK": 3
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.2,
+      "position": [
+        1056,
+        512
+      ],
+      "id": "e315476a-0593-4af7-8933-49e961ecd182",
+      "name": "Simple Vector Store5"
+    },
+    {
+      "parameters": {
+        "model": "nomic-embed-text:latest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        1072,
+        752
+      ],
+      "id": "2727ce4e-c365-40b3-ac13-bedda4d868e0",
+      "name": "Embeddings Ollama4",
+      "credentials": {
+        "ollamaApi": {
+          "id": "DBb2kqa47sxEkFTT",
+          "name": "Ollama account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/repos/paulclarkdata/dsba6171_healthtech_teamfour/contents/data/documents/text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        96,
+        512
+      ],
+      "id": "fc955d66-685c-476e-a490-6649792fa3ab",
+      "name": "HTTP Request2"
+    },
+    {
+      "parameters": {
+        "url": "={{$json.download_url}}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        272,
+        512
+      ],
+      "id": "ea945263-1208-4cf4-8580-35b7302f132e",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "content": "## 2. Chunk Experiment\n",
+        "height": 80,
+        "width": 320,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        1376
+      ],
+      "id": "d05bd952-7b26-4c95-85b3-d36674ee01b8",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## 1. Original Workflow",
+        "height": 80,
+        "width": 288,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -416,
+        672
+      ],
+      "id": "99110833-21f6-47c6-94b8-8b4da084284c",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## 3. Improved Architecture",
+        "height": 80,
+        "width": 304,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -544,
+        2144
+      ],
+      "id": "65f636f5-0507-4f76-88ae-586c3ea1798d",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## AI Agent",
+        "height": 80,
+        "width": 272
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        896
+      ],
+      "id": "7565cda6-3873-4b74-8e7e-79a6149c27a8",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "options": {
+          "maxIterations": 3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2048,
+        1024
+      ],
+      "id": "db09051d-0fb3-4a54-afdf-45d09424066a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "memoryKey": {
+          "__rl": true,
+          "value": "ta_lab_structure",
+          "mode": "id"
+        },
+        "clearStore": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.2,
+      "position": [
+        416,
+        1264
+      ],
+      "id": "57c94bda-fd16-4b20-b7c1-5b9a7b20ab9c",
+      "name": "Simple Vector Store"
+    },
+    {
+      "parameters": {
+        "model": "nomic-embed-text:latest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        176,
+        1504
+      ],
+      "id": "b8842ebb-0680-4a59-8de6-cd628d813f32",
+      "name": "Embeddings Ollama",
+      "credentials": {
+        "ollamaApi": {
+          "id": "DBb2kqa47sxEkFTT",
+          "name": "Ollama account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        400,
+        1504
+      ],
+      "id": "c509380d-0729-4e83-a3e7-d80faa66bbbc",
+      "name": "Default Data Loader1"
+    },
+    {
+      "parameters": {
+        "chunkSize": 100,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        384,
+        1712
+      ],
+      "id": "91c979db-9e6f-4572-8eb8-e1cddcda881d",
+      "name": "Recursive Character Text Splitter1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        784,
+        1264
+      ],
+      "id": "813677d4-00ea-4909-bf84-1ead4006f5b7",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "memoryKey": {
+          "__rl": true,
+          "value": "ta_lab_structure",
+          "mode": "id"
+        },
+        "prompt": "Can I bring a carry-on bag and a backpack?",
+        "topK": 3
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.2,
+      "position": [
+        960,
+        1264
+      ],
+      "id": "e7b291cb-42b6-4cce-9d6e-e2495bcb5d43",
+      "name": "Simple Vector Store6"
+    },
+    {
+      "parameters": {
+        "model": "nomic-embed-text:latest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        976,
+        1504
+      ],
+      "id": "03639c5c-e084-42e5-b8f9-cf86f3baeba7",
+      "name": "Embeddings Ollama5",
+      "credentials": {
+        "ollamaApi": {
+          "id": "DBb2kqa47sxEkFTT",
+          "name": "Ollama account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/repos/paulclarkdata/dsba6171_healthtech_teamfour/contents/data/documents/text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        0,
+        1264
+      ],
+      "id": "4152002b-6c71-4c3d-af5a-60d75b986e4d",
+      "name": "HTTP Request3"
+    },
+    {
+      "parameters": {
+        "url": "={{$json.download_url}}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        176,
+        1264
+      ],
+      "id": "70d508c2-34aa-4ef0-a102-421b1ddec29e",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "memoryKey": {
+          "__rl": true,
+          "value": "ta_lab_structure",
+          "mode": "id"
+        },
+        "clearStore": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.2,
+      "position": [
+        688,
+        2048
+      ],
+      "id": "0b67fdef-52b7-4953-b899-d87be4b8ca9e",
+      "name": "Simple Vector Store2"
+    },
+    {
+      "parameters": {
+        "model": "nomic-embed-text:latest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        224,
+        2288
+      ],
+      "id": "23d3aa70-133e-4a04-9ffd-11bec6975bad",
+      "name": "Embeddings Ollama2",
+      "credentials": {
+        "ollamaApi": {
+          "id": "DBb2kqa47sxEkFTT",
+          "name": "Ollama account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "metadata",
+                "value": "={{ $json.metadata }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        448,
+        2288
+      ],
+      "id": "0e74c383-5340-4945-8f49-e124bb3dc187",
+      "name": "Default Data Loader2"
+    },
+    {
+      "parameters": {
+        "chunkSize": 400,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        432,
+        2496
+      ],
+      "id": "24f87e22-1409-46fb-b848-d50bc9e17a96",
+      "name": "Recursive Character Text Splitter2"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1024,
+        2048
+      ],
+      "id": "e0e218f9-95f5-485a-a252-adfcd0c03d74",
+      "name": "Limit2",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "memoryKey": {
+          "__rl": true,
+          "value": "ta_lab_structure",
+          "mode": "id"
+        },
+        "prompt": "Can I bring a carry-on bag and a backpack?",
+        "topK": 3
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.2,
+      "position": [
+        1232,
+        2048
+      ],
+      "id": "b15894f0-07c6-4ba2-9d1f-b3da5a963487",
+      "name": "Simple Vector Store7"
+    },
+    {
+      "parameters": {
+        "model": "nomic-embed-text:latest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        1248,
+        2288
+      ],
+      "id": "7e95bd60-59ec-42d6-bba3-c025f76c06a9",
+      "name": "Embeddings Ollama6",
+      "credentials": {
+        "ollamaApi": {
+          "id": "DBb2kqa47sxEkFTT",
+          "name": "Ollama account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/repos/paulclarkdata/dsba6171_healthtech_teamfour/contents/data/documents/text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        48,
+        2048
+      ],
+      "id": "8a2edf72-a508-461c-bf36-86090da01e12",
+      "name": "HTTP Request4"
+    },
+    {
+      "parameters": {
+        "url": "={{$json.download_url}}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        256,
+        2048
+      ],
+      "id": "946b85ab-afca-44ad-bfa5-526bb6a78827",
+      "name": "HTTP Request5"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n\n  const text = item.json.data || '';\n\n  const getMatch = (regex) => {\n    const match = text.match(regex);\n    return match ? match[1].trim() : null;\n  };\n\n  let documentType = \"Unknown\";\n\n  if (text.includes(\"Medical Policy\")) {\n    documentType = \"Medical Policy\";\n  } else if (text.includes(\"MEMORANDUM\")) {\n    documentType = \"Memorandum\";\n  } else if (text.includes(\"Fee Schedule Matrix\")) {\n    documentType = \"Procedure Guide\";\n  }\n\n  item.json.metadata = {\n    documentId:\n      getMatch(/DOCUMENT ID:\\*\\*\\s*([^\\*\\n]+)/i),\n\n    version:\n      getMatch(/VERSION:\\*\\*\\s*([^\\*\\n]+)/i) ||\n      getMatch(/Version:\\*\\*\\s*([^\\*\\n]+)/i),\n\n    effectiveDate:\n      getMatch(/DATE:\\*\\*\\s*([^\\*\\n]+)/i) ||\n      getMatch(/Effective Date:\\*\\*\\s*([^\\*\\n]+)/i),\n\n    owner:\n      getMatch(/Owner:\\*\\*\\s*([^\\*\\n]+)/i),\n\n    region:\n      getMatch(/Region:\\*\\*\\s*([^\\*\\n]+)/i),\n\n    classification:\n      getMatch(/CONFIDENTIALITY:\\*\\*\\s*([^\\*\\n]+)/i),\n\n    documentType,\n\n    provenance:\n      \"GitHub Repository\"\n  };\n\n  return item;\n\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        2048
+      ],
+      "id": "f8352c5e-c928-424a-8f8b-909eb7f53f86",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Vector Store4": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Ollama3": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store4",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Vector Store1": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Ollama1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Simple Vector Store1",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Ollama4": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store5",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Vector Store": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Ollama": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader1": {
+      "ai_document": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter1": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader1",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Ollama5": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store6",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Vector Store2": {
+      "main": [
+        [
+          {
+            "node": "Limit2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Ollama2": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store2",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader2": {
+      "ai_document": [
+        [
+          {
+            "node": "Simple Vector Store2",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter2": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader2",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit2": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Ollama6": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store7",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request5": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "3e7c1dc4-e000-4f53-90cd-e82182c1d7ac",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4d9bdcfa8a5f349041dc8a2397915dcdbb1dde874cc4406cdf68ed43a045f72e"
+  },
+  "nodeGroups": [],
+  "id": "w6YCdU7IbUL2vR4N",
+  "tags": []
+}
